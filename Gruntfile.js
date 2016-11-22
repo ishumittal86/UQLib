@@ -37,7 +37,7 @@ module.exports = function(grunt) {
                             '<%= globalConfig.jsSrc %>/lib/angular-messages.min.js',
                             '<%= globalConfig.jsSrc %>/lib/angular-material.min.js',
                             '<%= globalConfig.jsSrc %>/app.js',
-                            //'<%= globalConfig.jsSrc %>/components/*/*.js',
+                            '<%= globalConfig.jsSrc %>/components/*/*.js',
                             '<%= globalConfig.jsSrc %>/router/*.js',
                             '<%= globalConfig.jsSrc %>/services/*.js'
                         ]
