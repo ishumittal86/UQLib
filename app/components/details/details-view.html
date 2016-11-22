@@ -1,0 +1,48 @@
+<md-toolbar class="md-theme-light">
+    <h2 class="md-toolbar-tools">
+        <span>{{name}} Details</span>
+    </h2>
+</md-toolbar>
+
+
+<md-content layout-padding flex = "50" flex-xs = "100" flex-sm = "100" flex-md = "50">
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Hours">
+            <md-content class="md-padding">
+
+                <div ng-repeat = "item in departments">
+                    <p> Department Name: {{item.name}}</p>
+                    <p> Opening Times: {{item.rendered}}</p>
+                    <p>
+                        <span class = "library-open" ng-show="{{item.times.currently_open}}"> Open now</span>
+                        <span class = "library-close" ng-show="!{{item.times.currently_open}}"> Closed Now</span>
+                    </p>
+
+                    <md-divider ng-if="!$last"></md-divider>
+                </div>
+            </md-content>
+        </md-tab>
+
+        <md-tab label="Computers">
+            <md-content class="md-padding">
+                <div ng-show="{{info}}">
+                    <p> Total Computers: {{total}}</p>
+                    <p> Available Computers: {{available}}</p>
+                </div>
+                <div ng-show="!{{info}}">
+                    <p> No computer information is available</p>
+
+                </div>
+
+            </md-content>
+        </md-tab>
+
+        <md-tab label="Misc">
+            <md-content class="md-padding">
+                <p> Additional Info: <a target = "_blank" href = "{{url}}"> {{url}} </a></p>
+                <p> Footnotes: {{fn}}</p>
+                <p> Contact: {{contact}}</p>
+            </md-content>
+        </md-tab>
+    </md-tabs>
+</md-content>

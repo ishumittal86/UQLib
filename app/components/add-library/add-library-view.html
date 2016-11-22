@@ -1,0 +1,63 @@
+
+<md-toolbar class="md-theme-light">
+    <h2 class="md-toolbar-tools">
+        <span>Add new library</span>
+    </h2>
+</md-toolbar>
+
+<form ng-submit = "addLibrary()" name="libraryForm" layout-padding layout-margin flex="50" flex-xs = "100" flex-sm = "100" flex-md = "50" layout-align = "center center">
+
+    <md-input-container class="md-block">
+        <label>Library Id</label>
+        <input md-maxlength = "6" required md-no-asterisk name="details.libraryId" ng-model="details.libraryId" >
+        <div ng-messages="libraryForm.details.libraryId.$error">
+            <div ng-message="required">This is required.</div>
+            <div ng-message="md-maxlength">Library Id can be maximum 6 digits.</div>
+            <!--<div ng-message="pattern">Library Id should be numbers only</div>-->
+        </div>
+    </md-input-container>
+
+
+    <md-input-container class="md-block">
+        <label>Library short name</label>
+        <input md-maxlength = "5" minlength = "5" required md-no-asterisk name="details.shortName" ng-model="details.shortName">
+        <div ng-messages="libraryForm.details.shortName.$error">
+            <div ng-message="required">This is required.</div>
+            <div ng-message="md-maxlength">Short name must be of 5 characters.</div>
+            <div ng-message="minlength">Short name must be of 5 characters.</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Library name</label>
+        <input md-maxlength = "50"  required md-no-asterisk name="details.libraryName" ng-model="details.libraryName">
+        <div ng-messages="libraryForm.details.libraryName.$error">
+            <div ng-message="required">This is required.</div>
+            <div ng-message="md-maxlength">Library name can be maximum 50 characters long.</div>
+        </div>
+    </md-input-container>
+
+
+
+
+    <md-input-container class="md-block">
+
+        <label>Campus</label>
+        <md-select name="details.campus" ng-model="details.campus" required md-no-asterisk>
+            <md-option value="1">St Lucia</md-option>
+            <md-option value="2">Herston</md-option>
+            <md-option value="3">Bundaberg</md-option>
+            <md-option value="4">PACE</md-option>
+            <md-option value="5">Mater</md-option>
+        </md-select>
+
+    </md-input-container>
+
+
+
+    <div>
+        <md-button  ng-href="#/" class="md-primary ">CANCEL</md-button>
+        <md-button class="md-primary " type="submit">SAVE</md-button>
+    </div>
+
+</form>

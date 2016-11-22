@@ -1,0 +1,39 @@
+
+<div layout="column" >
+
+    <div layout="row"  layout-margin>
+        <input  flex="33" flex-xs="1" type="text" id="search" ng-model="search" placeholder="Search list by name"/>
+
+        <div flex="66">
+            <md-button  layout-align="end" ng-href="#/new" class="md-primary ">Add new library</md-button>
+        </div>
+
+
+    </div>
+
+
+    <md-toolbar class="md-theme-light">
+        <h2 class="md-toolbar-tools">
+            <span>Libraries List</span>
+        </h2>
+    </md-toolbar>
+
+    <md-content layout-padding>
+        <md-list>
+            <md-list-item class="md-3-line" ng-repeat="list in lists | filter:search">
+                <div class="md-list-item-text">
+                    <h3>{{ list.name }}</h3>
+                    <span class = "library-open" ng-show="{{list.times.currently_open}}"> Open now</span> <span class = "library-close" ng-show="!{{list.times.currently_open}}"> Closed Now</span>
+                </div>
+                <md-button ng-href="#/{{list.lid}}" class="md-primary ">More info</md-button>
+                <md-divider ng-if="!$last"></md-divider>
+            </md-list-item>
+        </md-list>
+    </md-content>
+
+
+
+
+</div>
+
+
